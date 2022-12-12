@@ -1,0 +1,25 @@
+<form fxLayout="column" [formGroup]="productForm" (submit)="sumbit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter Product Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="20" placeholder="Enter product description" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="Enter category" formControlName="category">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="Enter price" formControlName="price">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Currency</mat-label>
+        <input matInput placeholder="Enter price" value="PLN" formControlName="currency">
+    </mat-form-field>
+    <div fxLayout="colum" fxFlexAlign="end" fxLayoutGap="10">
+        <button mat-flat-button color="primary">Save</button>
+    </div>
+</form>
