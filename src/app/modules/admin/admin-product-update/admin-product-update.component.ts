@@ -30,7 +30,7 @@ export class AdminProductUpdateComponent implements OnInit {
       category: [''],
       price: [''],
       currency: ['PLN']
-    })
+    });
   }
 
   getProduct() {
@@ -39,7 +39,7 @@ export class AdminProductUpdateComponent implements OnInit {
       .subscribe(product => this.mapFormValues(product));
   }
 
-  sumbit() {
+  submit() {
     let id = Number(this.router.snapshot.params['id']);
     this.adminProductUpdateService.saveProduct(id, {
       name: this.productForm.get('name')?.value,
