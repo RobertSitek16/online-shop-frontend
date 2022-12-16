@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { AdminMessageService } from '../admin-message.service';
 import { AdminProductUpdateService } from './admin-product-update.service';
 import { AdminProductUpdate } from './model/adminProductUpdate';
 
@@ -18,6 +19,7 @@ export class AdminProductUpdateComponent implements OnInit {
   constructor(
     private router: ActivatedRoute,
     private adminProductUpdateService: AdminProductUpdateService,
+    private adminMessageService: AdminMessageService,
     private formBuilder: FormBuilder,
     private snackBark: MatSnackBar
   ) { }
@@ -25,11 +27,11 @@ export class AdminProductUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.getProduct();
     this.productForm = this.formBuilder.group({
-      name: [''],
-      description: [''],
-      category: [''],
-      price: [''],
-      currency: ['PLN']
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required, Validators.minLength(4)]],
+      price: ['', [Validators.required, Validators.min(0)]],
+      currency: ['PLN', Validators.required]
     });
   }
 
@@ -47,9 +49,12 @@ export class AdminProductUpdateComponent implements OnInit {
       category: this.productForm.get('category')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value
-    } as AdminProductUpdate).subscribe(product => {
-      this.mapFormValues(product);
-      this.snackBark.open("Product has been saved!", '', {duration: 2000});
+    } as AdminProductUpdate).subscribe({
+      next: product => {
+        this.mapFormValues(product);
+        this.snackBark.open("Product has been saved!", '', { duration: 2000 });
+      },
+      error: err => this.adminMessageService.addSpringErrors(err.error)
     });
   }
 
