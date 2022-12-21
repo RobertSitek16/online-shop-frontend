@@ -1,9 +1,9 @@
-export interface Product {
+export interface ProductDetails {
     name: string,
-    category: string,
     description: string,
+    category: string,
     price: number,
     currency: string,
     image: string,
-    slug: string,
+    slug: string
 }

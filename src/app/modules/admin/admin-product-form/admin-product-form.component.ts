@@ -19,6 +19,18 @@ import { reduce } from "rxjs";
             </div>
         </mat-form-field>
         <mat-form-field appearance="fill">
+            <mat-label>Friendly URL</mat-label>
+            <input matInput placeholder="Enter Product Name" formControlName="slug">
+            <div *ngIf="slug?.invalid && (slug?.dirty || slug?.touched)" class="errorMessages">
+               <div *ngIf="slug?.errors?.['required']">
+                    Slug is required
+               </div>
+               <div *ngIf="slug?.errors?.['minlength']">
+                    The field must have a minimum of 4 characters
+               </div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Description</mat-label>
             <textarea matInput rows="20" placeholder="Enter product description" formControlName="description"></textarea>
             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="errorMessages">
@@ -99,6 +111,10 @@ export class AdminProductFormComponent implements OnInit {
     
     get currency() {
         return this.parentForm.get("currency");
+    }
+
+    get slug() {
+        return this.parentForm.get("slug");
     }
 
 
