@@ -32,7 +32,7 @@ import { reduce } from "rxjs";
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Description</mat-label>
-            <textarea matInput rows="20" placeholder="Enter product description" formControlName="description"></textarea>
+            <textarea matInput rows="10" placeholder="Enter product description" formControlName="description"></textarea>
             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="errorMessages">
                <div *ngIf="description?.errors?.['required']">
                     Description is required
@@ -41,6 +41,10 @@ import { reduce } from "rxjs";
                     Description must have a minimum of 4 characters
                </div>
             </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Full Description</mat-label>
+            <textarea matInput rows="30" placeholder="Enter full product description" formControlName="fullDescription"></textarea>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
@@ -115,6 +119,10 @@ export class AdminProductFormComponent implements OnInit {
 
     get slug() {
         return this.parentForm.get("slug");
+    }
+
+    get fullDescription() {
+        return this.parentForm.get("fullDescription");
     }
 
 
