@@ -1,4 +1,5 @@
 @import 'variables.scss';
+
 body,
 html {
     margin: 0;
@@ -6,7 +7,12 @@ html {
     height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .content {
     padding: 20px;
     background: $lightgray;
+}
+
+.snack-bar-bg-color-ok {
+    background-color: #009900;
 }
