@@ -9,6 +9,7 @@ import { AdminCategoryComponent } from './modules/admin/admin-category/admin-cat
 import { AdminProductAddComponent } from './modules/admin/admin-product/admin-product-add/admin-product-add.component';
 import { AdminProductUpdateComponent } from './modules/admin/admin-product/admin-product-update/admin-product-update.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
+import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CategoryComponent } from './modules/category/category.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -21,36 +22,37 @@ const routes: Routes = [
     path: '',
     component: DefaultComponent,
     children: [
-      {path: '', component: HomeComponent},
-      {path: 'products', component: ProductComponent},
-      {path: 'products/:slug', component: ProductDetailsComponent},
-      {path: 'categories/:slug', component: CategoryComponent}
+      { path: '', component: HomeComponent },
+      { path: 'products', component: ProductComponent },
+      { path: 'products/:slug', component: ProductDetailsComponent },
+      { path: 'categories/:slug', component: CategoryComponent }
     ]
   },
   {
     path: '',
     component: FullpageComponent,
     children: [
-      {path: 'login', component: LoginComponent}
+      { path: 'login', component: LoginComponent }
     ]
   },
   {
     path: '',
     component: FullpageadminComponent,
     children: [
-      {path: 'admin', component: AdminComponent},
-      {path: 'admin/products', component: AdminProductComponent},
-      {path: 'admin/products/update/:id', component: AdminProductUpdateComponent},
-      {path: 'admin/products/add', component: AdminProductAddComponent},
-      {path: 'admin/categories', component: AdminCategoryComponent},
-      {path: 'admin/categories/add', component: AdminCategoryAddComponent},
-      {path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent}
+      { path: 'admin', component: AdminComponent },
+      { path: 'admin/products', component: AdminProductComponent },
+      { path: 'admin/products/update/:id', component: AdminProductUpdateComponent },
+      { path: 'admin/products/add', component: AdminProductAddComponent },
+      { path: 'admin/categories', component: AdminCategoryComponent },
+      { path: 'admin/categories/add', component: AdminCategoryAddComponent },
+      { path: 'admin/categories/update/:id', component: AdminCategoryUpdateComponent },
+      { path: 'admin/reviews', component: AdminReviewComponent }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
