@@ -6,4 +6,5 @@ export interface Product {
     currency: string,
     image: string,
     slug: string,
+    id: number
 }

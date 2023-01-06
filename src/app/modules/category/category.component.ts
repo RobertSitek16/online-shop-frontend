@@ -12,7 +12,7 @@ import { CategoryProducts } from './model/categoryProducts';
 })
 export class CategoryComponent implements OnInit, OnDestroy {
 
-  categoryProducts!: CategoryProducts;
+  categoryProducts?: CategoryProducts;
   private sub!: Subscription;
 
   constructor(
