@@ -32,6 +32,9 @@
             <div class="summary"> Value: </div>
             <div class="summary"> <b>{{summary.summary.grossValue}}</b></div>
         </div>
+        <div fxLayoutAlign="end start" >
+            <button class="orderButton" type="button" mat-flat-button color="accent" routerLink="/order" >Order</button>
+        </div>
     </div>
 </form>
 <div *ngIf="!summary?.items?.length">
