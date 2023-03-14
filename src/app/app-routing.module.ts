@@ -20,8 +20,10 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 import { CartComponent } from './modules/cart/cart.component';
 import { CategoryComponent } from './modules/category/category.component';
+import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
+import { LostPasswordComponent } from './modules/login/lost-password/lost-password.component';
 import { OrderComponent } from './modules/order/order.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
@@ -38,14 +40,16 @@ const routes: Routes = [
       { path: 'categories/:slug', component: CategoryComponent },
       { path: 'cart', component: CartComponent },
       { path: 'order', component: OrderComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent, canActivate: [ProfileAuthorizeGuard] }
     ]
   },
   {
     path: '',
     component: FullpageComponent,
     children: [
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'lostPassword', component: LostPasswordComponent },
+      { path: 'lostPassword/:hash', component: LostPasswordComponent }
     ]
   },
   {
