@@ -24,6 +24,7 @@ import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGu
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { LostPasswordComponent } from './modules/login/lost-password/lost-password.component';
+import { OrderNotificationComponent } from './modules/order/order-notification/order-notification.component';
 import { OrderComponent } from './modules/order/order.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: 'categories/:slug', component: CategoryComponent },
       { path: 'cart', component: CartComponent },
       { path: 'order', component: OrderComponent },
+      { path: 'order/notification/:orderHash', component: OrderNotificationComponent },
       { path: 'profile', component: ProfileComponent, canActivate: [ProfileAuthorizeGuard] }
     ]
   },

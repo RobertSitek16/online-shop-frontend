@@ -12,6 +12,7 @@ import { FullpageadminemptyModule } from './layouts/fullpageadminempty/fullpagea
 import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
+import { OrderNotificationComponent } from './modules/order/order-notification/order-notification.component';
 
 @NgModule({
   declarations: [

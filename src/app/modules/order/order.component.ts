@@ -78,6 +78,11 @@ export class OrderComponent implements OnInit {
             this.cookieService.delete("cartId");
             this.errorMessage = false;
             this.cartIconService.cartChanged(0);
+            if (orderSummary.redirectUrl) {
+              window.location.href = orderSummary.redirectUrl;
+            } else {
+              this.orderSummary = orderSummary;
+            }
           },
           error: err => this.errorMessage = true
         });

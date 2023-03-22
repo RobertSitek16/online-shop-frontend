@@ -4,6 +4,7 @@ export interface OrderSummary {
     id: number,
     placeDate: Date,
     status: string,
-    grossValue: number
-    payment: Payment
+    grossValue: number,
+    payment: Payment,
+    redirectUrl: string
 }
